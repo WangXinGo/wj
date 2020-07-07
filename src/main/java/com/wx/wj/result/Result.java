@@ -1,4 +1,4 @@
-package com.wx.result;
+package com.wx.wj.result;
 
 /**
  * @author wx

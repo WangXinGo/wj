@@ -1,8 +1,8 @@
-package com.wx.controller;
+package com.wx.wj.controller;
 
-import com.wx.pojo.User;
-import com.wx.result.Result;
-import com.wx.service.UserService;
+import com.wx.wj.pojo.User;
+import com.wx.wj.result.Result;
+import com.wx.wj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
-
-import java.util.Objects;
 
 /**
  * @author wx
@@ -29,7 +27,7 @@ public class LoginController {
         String username = requestUser.getUsername();
         username = HtmlUtils.htmlEscape(username);
 
-        User user = userService.get(username, requestUser.getPassword());
+        User user = userService.get(username);
 
 //        if (!Objects.equals("admin", username) || !Objects.equals("123456", requestUser.getPassword())) {
 //            String messgae = "账号密码错误";

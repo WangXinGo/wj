@@ -1,4 +1,4 @@
-package com.wx.pojo;
+package com.wx.wj.pojo;
 
 /**
  * @author wx
