@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 /**
  * @author wx
  */
-@Mapper
 public interface UserMapper {
 
     /**
