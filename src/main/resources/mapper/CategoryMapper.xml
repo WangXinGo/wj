@@ -5,7 +5,7 @@
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="getAllCategory" resultMap="BaseResultMap">
+    <select id="getAllCategorys" resultMap="BaseResultMap">
         select * from category
     </select>
     <select id="selectById" resultMap="BaseResultMap">

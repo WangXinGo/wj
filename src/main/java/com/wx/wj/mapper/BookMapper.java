@@ -10,18 +10,18 @@ import java.util.List;
 public interface BookMapper {
 
     /**
-     * list
+     * getAllBooks
      *
      * @return
      */
-    List<Book> list();
+    List<Book> getAllBooks();
 
     /**
-     * addOrUpdate
+     * saveOrUpdate
      *
      * @param book
      */
-    void addOrUpdate(Book book);
+    void saveOrUpdate(Book book);
 
     /**
      * deleteById
@@ -31,11 +31,11 @@ public interface BookMapper {
     void deleteById(int id);
 
     /**
-     * listByCategory
+     * getByCategory
      *
      * @param cid
      * @return
      */
-    List<Book> listByCategory(int cid);
+    List<Book> getByCategory(int cid);
 
 }

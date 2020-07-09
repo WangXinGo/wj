@@ -1,5 +1,7 @@
 package com.wx.wj.pojo;
 
+import java.io.Serializable;
+
 /**
  * @author wx
  */

@@ -5,10 +5,12 @@ import java.io.Serializable;
 /**
  * @author wx
  */
-public class Category implements Serializable {
+public class Category {
 
     private int id;
     private String name;
+
+
 
     public int getId() {
         return id;
@@ -25,14 +27,6 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Category{" +
-//                    "id=" + id +
-//                    ", name='" + name + '\'' +
-//                    '}';
-//    };
 
 }
 

@@ -1,10 +1,9 @@
 package com.wx.wj.controller;
 
-import com.wx.wj.pojo.Category;
-import com.wx.wj.service.CategoryService;
+import com.wx.wj.pojo.Book;
+import com.wx.wj.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,16 +13,30 @@ import java.util.List;
 @RestController
 public class LibraryController {
     @Autowired
-    CategoryService categoryService;
+    BookService bookService;
 
-    @GetMapping("/api/test1")
-    public List<Category> getAllCategory(){
-        return categoryService.getAllCategory();
+    @GetMapping("/api/books")
+    public List<Book> list() throws Exception{
+        return bookService.list();
     }
 
-    @GetMapping("test")
-    public Category selectById(int id){
-        Category category = categoryService.selectById(id);
-        return category;
+    @PostMapping("/api/books")
+    public void addOrUpdate(@RequestBody Book book) throws Exception{
+        bookService.addOrUpdate(book);
+    }
+
+    @PostMapping("/api/delete")
+    public void delete(@RequestBody Book book) throws Exception {
+        bookService.deleteById(book.getId());
+    }
+
+
+    @GetMapping("/api/categories/{cid}/books")
+    public List<Book> listByCategory(@PathVariable("cid") int cid) throws Exception {
+        if (0 != cid) {
+            return bookService.listByCategory(cid);
+        } else {
+            return list();
+        }
     }
 }

@@ -18,12 +18,12 @@ public class CategoryImpl implements CategoryService {
     CategoryMapper categoryMapper;
 
     @Override
-    public List<Category> getAllCategory() {
-        return categoryMapper.getAllCategory();
+    public List<Category> list() {
+        return categoryMapper.getAllCategorys();
     }
 
     @Override
-    public Category selectById(int id) {
+    public Category get(int id) {
         Category category = categoryMapper.selectById(id);
         return category;
     }

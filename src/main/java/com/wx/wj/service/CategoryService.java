@@ -1,8 +1,6 @@
 package com.wx.wj.service;
 
-import com.wx.wj.mapper.CategoryMapper;
 import com.wx.wj.pojo.Category;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -16,7 +14,7 @@ public interface CategoryService {
      *
      * @return
      */
-    public List<Category> getAllCategory();
+    public List<Category> list();
 
     /**
      * get
@@ -24,6 +22,6 @@ public interface CategoryService {
      * @param id
      * @return
      */
-    public Category selectById(int id);
+    public Category get(int id);
 
 }

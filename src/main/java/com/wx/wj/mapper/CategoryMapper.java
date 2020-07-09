@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CategoryMapper {
 
-        List<Category> getAllCategory();
+        List<Category> getAllCategorys();
 
         Category selectById(int id);
 }

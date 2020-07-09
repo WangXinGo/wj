@@ -22,21 +22,21 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> list() {
-
+        return bookMapper.getAllBooks();
     }
 
     @Override
     public void addOrUpdate(Book book) {
-
+        bookMapper.saveOrUpdate(book);
     }
 
     @Override
     public void deleteById(int id) {
-
+        bookMapper.deleteById(id);
 }
 
     @Override
     public List<Book> listByCategory(int cid) {
-
+        return bookMapper.getByCategory(cid);
     }
 }

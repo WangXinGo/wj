@@ -11,9 +11,9 @@ public interface BookService {
 
     List<Book> list();
 
-    public void addOrUpdate(Book book);
+    void addOrUpdate(Book book);
 
-    public void deleteById(int id);
+    void deleteById(int id);
 
-    public List<Book> listByCategory(int cid);
+    List<Book> listByCategory(int cid);
 }

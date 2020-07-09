@@ -4,20 +4,44 @@
     <resultMap id="BaseResultMap" type="Book">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="cover" property="cover" jdbcType="VARCHAR"/>
-        <result column="title" property="title" jdbcType="BIT"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="author" property="author" jdbcType="VARCHAR"/>
         <result column="date" property="date" jdbcType="VARCHAR"/>
         <result column="press" property="press" jdbcType="VARCHAR"/>
         <result column="abs" property="abs" jdbcType="VARCHAR"/>
-        <result column="cid" property="cid" jdbcType="INTEGER"/>
+        <association column="cid" property="category" javaType="Category"
+                     select="com.wx.wj.mapper.CategoryMapper.selectById"/>
     </resultMap>
-    <select id="list" resultMap="BaseResultMap">
+    <select id="getAllBooks" resultMap="BaseResultMap">
         select * from book
     </select>
-    <insert id="addBook">
-        insert into book (id, cover, title, author, date, press, abs, cid
+    <insert id="saveOrUpdate" >
+        <selectKey keyProperty="id" resultType="com.wx.wj.pojo.Book" order="BEFORE">
+            select count(id) as id from book where id = #{id}
+        </selectKey>
+        <if test="id == 1">
+            update book
+            set cover = #{cover},
+            title = #{title},
+            author = #{author},
+            date = #{date},
+            press = #{press},
+            abs = #{abs},
+            cid = #{category.id}
+            where id = #{id}
+        </if>
+        <if test="id == 0">
+            insert into book (cover, title, author, date, press, abs, cid
             )
-        values (#{id}, #{cover}, #{title}, #{author}, #{date}, #{press}, #{abs}, #{cid}
+            values (#{cover}, #{title}, #{author}, #{date}, #{press}, #{abs}, #{category.id}
             )
+        </if>
     </insert>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from book
+        where id = #{id}
+    </delete>
+    <select id="getByCategory" resultMap="BaseResultMap">
+        select * from book where cid=#{cid}
+    </select>
 </mapper>
