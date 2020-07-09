@@ -21,8 +21,9 @@ public class LibraryController {
     }
 
     @PostMapping("/api/books")
-    public void addOrUpdate(@RequestBody Book book) throws Exception{
+    public Book addOrUpdate(@RequestBody Book book) throws Exception{
         bookService.addOrUpdate(book);
+        return book;
     }
 
     @PostMapping("/api/delete")
