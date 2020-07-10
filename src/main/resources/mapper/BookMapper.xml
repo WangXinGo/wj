@@ -16,8 +16,8 @@
         select * from book
     </select>
     <insert id="saveOrUpdate" >
-        <selectKey keyProperty="id" resultType="com.wx.wj.pojo.Book" order="BEFORE">
-            select count(id) as id from book where id = #{id}
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select count(id) from book where id = #{id}
         </selectKey>
         <if test="id == 1">
             update book
