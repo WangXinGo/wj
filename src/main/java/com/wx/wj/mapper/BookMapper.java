@@ -37,5 +37,4 @@ public interface BookMapper {
      * @return
      */
     List<Book> getByCategory(int cid);
-
 }
